@@ -52,8 +52,18 @@ ul {
 .link {
     text-decoration: none;
 }
-.hide-title {
-    display: none;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 /* Logo */
@@ -163,9 +173,22 @@ ul {
 /* Hero */
 .hero {
     background: var(--dark-color);
+    background-image: linear-gradient(
+            to right,
+            rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/people-office.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 1600px;
+    height: 600px;
     text-align: center;
     padding-top: 188px;
     padding-bottom: 188px;
+    margin-left: auto;
+    margin-right: auto;
     /* outline: 1px solid red; */
 }
 .hero-title {
@@ -189,6 +212,30 @@ ul {
 }
 .feature-list .item {
     flex-basis: calc((100% - 3 * 24px) / 4);
+}
+.feature-list .item::before {
+    display: block;
+    content: "";
+    height: 112px;
+    background-color: var(--light-color);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 64px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+.feature-list .item:nth-child(1)::before {
+    background-image: url(../images/feature-antenna.svg);
+    /* background-image: url(../images/sprite-remote.svg#cloud-view); */
+}
+.feature-list .item:nth-child(2)::before {
+    background-image: url(../images/feature-clock.svg);
+}
+.feature-list .item:nth-child(3)::before {
+    background-image: url(../images/feature-diagram.svg);
+}
+.feature-list .item:nth-child(4)::before {
+    background-image: url(../images/feature-astronaut.svg);
 }
 
 .feature-list .item:not(:last-child) {
@@ -246,6 +293,9 @@ ul {
 .team-info {
     padding: 32px 16px;
 }
+.team-info > .text {
+    margin-bottom: 8px;
+}
 .team-list .title {
     margin-bottom: 8px;
     font-weight: 500;
@@ -265,6 +315,41 @@ ul {
 .team-item {
     background: var(--white-color);
 }
+.social-list {
+    display: flex;
+    gap: 24px;
+}
+.social-item {
+    flex-basis: calc((100% - 3 * 24px) / 4);
+}
+.social-icon {
+    display: inline-block;
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-brand-color);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.social-icon:hover,
+.social-icon:focus {
+    background-color: var(--pressed-state-color);
+}
+.social-item > .instagram {
+    /* width: 16px;
+    height: 16px; */
+    background-image: url(../images/icon-instagram.svg);
+}
+.social-item > .twitter {
+    background-image: url(../images/icon-twitter.svg);
+}
+.social-item > .facebook {
+    background-image: url(../images/icon-facebook.svg);
+}
+.social-item > .linkedin {
+    background-image: url(../images/icon-linkedin.svg);
+}
 /* .team-item .title {
     margin-top: 32px;
     margin-bottom: 8px;
@@ -272,6 +357,41 @@ ul {
 .team-item .text {
     margin-bottom: 32px;
 } */
+
+/* Customers */
+.customers {
+    padding-top: 120px;
+}
+.customers-list {
+    display: flex;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+}
+.customers-item {
+    flex-basis: calc((100% - 5 * 24px) / 6);
+    width: 168px;
+    height: 88px;
+    border: 1px solid var(--subtle-text-color);
+    border-radius: 4px;
+    fill: var(--subtle-text-color);
+}
+.customers-link {
+    display: flex;
+    width: 168px;
+    height: 88px;
+    align-items: center;
+    justify-content: center;
+}
+.customers-item:hover,
+.customers-item:focus {
+    border: 1px solid var(--pressed-state-color);
+    fill: var(--pressed-state-color);
+}
+.customers-icon {
+    width: 104px;
+    height: 56px;
+}
 
 /* Portfolio */
 .portfolio {
@@ -389,6 +509,13 @@ ul {
     padding-top: 100px;
     padding-bottom: 100px;
 }
+.footer .container {
+    display: flex;
+}
+.footer-slogan {
+    width: 264px;
+    margin-right: 120px;
+}
 .footer .text {
     font-size: 16px;
     line-height: 24px;
@@ -397,5 +524,19 @@ ul {
 }
 .footer-logo {
     display: inline-block;
+    margin-bottom: 16px;
+}
+.footer-social {
+    width: 208px;
+}
+.footer-social > .social-list {
+    gap: 16px;
+}
+.social-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--white-color);
     margin-bottom: 16px;
 }
