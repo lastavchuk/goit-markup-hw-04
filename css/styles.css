@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     background-color: var(--white-color);
     color: var(--text-color);
@@ -68,7 +68,7 @@ ul {
 
 /* Logo */
 .logo {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 18px;
@@ -89,6 +89,8 @@ ul {
 /* Header */
 .header {
     border-bottom: 1px solid var(--accent-color);
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header > .container {
     display: flex;
@@ -174,7 +176,6 @@ ul {
 .hero {
     background: var(--dark-color);
     background-image: linear-gradient(
-            to right,
             rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)
         ),
@@ -182,7 +183,7 @@ ul {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    max-width: 1600px;
+    max-width: 1440px;
     height: 600px;
     text-align: center;
     padding-top: 188px;
@@ -205,7 +206,6 @@ ul {
 /* Features */
 .feature {
     padding-top: 120px;
-    /* outline: 1px solid blue; */
 }
 .feature-list {
     display: flex;
@@ -213,9 +213,18 @@ ul {
 .feature-list .item {
     flex-basis: calc((100% - 3 * 24px) / 4);
 }
-.feature-list .item::before {
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    margin-bottom: 8px;
+    background-color: var(--light-color);
+    border-radius: 4px;
+}
+/* .feature-list .item::before {
     display: block;
-    content: "";
+    content: '';
     height: 112px;
     background-color: var(--light-color);
     background-repeat: no-repeat;
@@ -226,7 +235,6 @@ ul {
 }
 .feature-list .item:nth-child(1)::before {
     background-image: url(../images/feature-antenna.svg);
-    /* background-image: url(../images/sprite-remote.svg#cloud-view); */
 }
 .feature-list .item:nth-child(2)::before {
     background-image: url(../images/feature-clock.svg);
@@ -236,7 +244,7 @@ ul {
 }
 .feature-list .item:nth-child(4)::before {
     background-image: url(../images/feature-astronaut.svg);
-}
+} */
 
 .feature-list .item:not(:last-child) {
     margin-right: 24px;
@@ -288,10 +296,12 @@ ul {
 }
 .team-item {
     flex-basis: calc((100% - 3 * 24px) / 4);
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
     border-radius: 0px 0px 4px 4px;
 }
 .team-info {
-    padding: 32px 16px;
+    padding: 32px 0;
 }
 .team-info > .text {
     margin-bottom: 8px;
@@ -318,45 +328,31 @@ ul {
 .social-list {
     display: flex;
     gap: 24px;
+    justify-content: center;
 }
 .social-item {
-    flex-basis: calc((100% - 3 * 24px) / 4);
-}
-.social-icon {
-    display: inline-block;
-    content: "";
+    /* flex-basis: calc((100% - 3 * 24px) / 4); */
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+}
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     background-color: var(--primary-brand-color);
-    background-repeat: no-repeat;
-    background-position: center;
+    border-radius: 50%;
 }
 .social-icon:hover,
 .social-icon:focus {
     background-color: var(--pressed-state-color);
 }
-.social-item > .instagram {
-    /* width: 16px;
-    height: 16px; */
-    background-image: url(../images/icon-instagram.svg);
+.icons {
+    width: 16px;
+    height: 16px;
+    fill: var(--light-color);
 }
-.social-item > .twitter {
-    background-image: url(../images/icon-twitter.svg);
-}
-.social-item > .facebook {
-    background-image: url(../images/icon-facebook.svg);
-}
-.social-item > .linkedin {
-    background-image: url(../images/icon-linkedin.svg);
-}
-/* .team-item .title {
-    margin-top: 32px;
-    margin-bottom: 8px;
-}
-.team-item .text {
-    margin-bottom: 32px;
-} */
 
 /* Customers */
 .customers {
@@ -372,25 +368,28 @@ ul {
     flex-basis: calc((100% - 5 * 24px) / 6);
     width: 168px;
     height: 88px;
-    border: 1px solid var(--subtle-text-color);
-    border-radius: 4px;
-    fill: var(--subtle-text-color);
 }
 .customers-link {
     display: flex;
-    width: 168px;
-    height: 88px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--subtle-text-color);
+    border-radius: 4px;
     align-items: center;
     justify-content: center;
+    fill: var(--subtle-text-color);
+    color: var(--subtle-text-color);
 }
-.customers-item:hover,
-.customers-item:focus {
-    border: 1px solid var(--pressed-state-color);
+.customers-link:hover,
+.customers-link:focus {
+    border-color: var(--pressed-state-color);
+    color: var(--pressed-state-color);
     fill: var(--pressed-state-color);
 }
 .customers-icon {
     width: 104px;
     height: 56px;
+    fill: currentColor;
 }
 
 /* Portfolio */
@@ -427,6 +426,14 @@ ul {
 .portfolio-list > .portfolio-item:nth-last-child(-n + 3) {
     margin-bottom: 0;
 }
+.portfolio-link {
+    display: block;
+}
+.portfolio-link:hover,
+.portfolio-link:focus {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
 .portfolio-info {
     padding: 32px 16px;
     border: 1px solid var(--accent-color);
@@ -453,7 +460,7 @@ ul {
     border: 1px solid var(--accent-color);
     border-radius: 4px;
 
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -480,6 +487,8 @@ ul {
 .button-action:hover,
 .button-action:focus {
     background: var(--pressed-state-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
+        0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 .button-primary {
     background: var(--pressed-state-color);
@@ -511,6 +520,7 @@ ul {
 }
 .footer .container {
     display: flex;
+    align-items: baseline;
 }
 .footer-slogan {
     width: 264px;
@@ -529,10 +539,7 @@ ul {
 .footer-social {
     width: 208px;
 }
-.footer-social > .social-list {
-    gap: 16px;
-}
-.social-text {
+.footer-social-text {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
@@ -540,3 +547,17 @@ ul {
     color: var(--white-color);
     margin-bottom: 16px;
 }
+.footer-social > .social-list {
+    gap: 16px;
+}
+.footer-social .social-icon:hover,
+.footer-social .social-icon:focus {
+    background-color: var(--success-color);
+}
+.footer-icon {
+    fill: var(--light-color);
+}
+/* social-list
+social-item
+social-icon
+ */
